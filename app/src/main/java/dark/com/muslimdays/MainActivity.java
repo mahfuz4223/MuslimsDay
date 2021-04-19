@@ -89,7 +89,6 @@ import static android.graphics.Typeface.createFromFile;
     private TextView countdownTextView;
     private MaterialCardView countdownCardView;
 
-
      private com.al.tobangla.views.BNTextView iftar;
      private com.al.tobangla.views.BNTextView sehri;
      private com.al.tobangla.views.BNTextView hijriDates,startFajar,endFajar,startZuhar, startAsr, startMagrib, startEsha,endZuhar, endAsr, endMagrib, endEsha,enDate,hijriyear;
@@ -103,10 +102,9 @@ import static android.graphics.Typeface.createFromFile;
 
      TextView mCity;
 
-
-
      private com.al.tobangla.views.BNTextView sunRise, sunSet;
-    String tag_json_obj = "json_obj_req";
+
+//    String tag_json_obj = "json_obj_req";
     final TimeConverter timeConverter = new TimeConverter();
      final Monthconvart monthconvart = new Monthconvart();
     private static final String TAG = "tag";
@@ -124,13 +122,12 @@ import static android.graphics.Typeface.createFromFile;
         topBar();
         SetupNavDrawer();
         checkAllPermission();
-        RamadanCountdown();
-//        RateAppAlert();
-
-//        LoadPreviousSalatData();
 
         try {
             new GetPrayerTimes().execute();
+
+            new GeshTimes().execute();
+
             checkInternet();
 //            LoadPreviousSalatData();
         } catch (Exception e) {
@@ -167,43 +164,6 @@ import static android.graphics.Typeface.createFromFile;
 
     }
 
-     private void RamadanCountdown() {
-
-         Calendar start_calendar = Calendar.getInstance();
-         Calendar end_calendar = Calendar.getInstance();
-         end_calendar.set(2021, 3, 14); // 10 = November, month start at 0 = January
-         long start_millis = start_calendar.getTimeInMillis(); //get the start time in milliseconds
-         long end_millis = end_calendar.getTimeInMillis(); //get the end time in milliseconds
-         long total_millis = (end_millis - start_millis); //total time in milliseconds
-
-         //1000 = 1 second interval
-         CountDownTimer cdt = new CountDownTimer(total_millis, 1000) {
-             @Override
-             public void onTick(long millisUntilFinished) {
-                 long days = TimeUnit.MILLISECONDS.toDays(millisUntilFinished);
-                 millisUntilFinished -= TimeUnit.DAYS.toMillis(days);
-
-                 long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
-                 millisUntilFinished -= TimeUnit.HOURS.toMillis(hours);
-
-                 long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished);
-                 millisUntilFinished -= TimeUnit.MINUTES.toMillis(minutes);
-
-                 long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished);
-          countdownTextView.setText(days + " দিন : " + hours + " ঘন্টা : " + minutes + " মিনিট : " + seconds+" সেকেন্ড"); //You can compute the millisUntilFinished on hours/minutes/seconds
-
-             }
-
-             @Override
-             public void onFinish() {
-                 countdownTextView.setText("Finish!");
-                 countdownCardView.setVisibility(View.GONE);
-
-             }
-         };
-         cdt.start();
-
-     }
 
      private long backPressedTime;
      private Toast backToast;
@@ -220,7 +180,6 @@ import static android.graphics.Typeface.createFromFile;
 
          backPressedTime = System.currentTimeMillis();
      }
-
 
      private void checkInternet() {
         if (AppInternetStatus.getInstance(this).isOnline()) {
@@ -282,7 +241,6 @@ import static android.graphics.Typeface.createFromFile;
 
 
     }
-
 
     private void topBar() {
 
@@ -437,7 +395,7 @@ import static android.graphics.Typeface.createFromFile;
 
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.INTERNET,
-                        Manifest.permission.ACCESS_NETWORK_STATE)
+                        Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION)
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
@@ -466,28 +424,6 @@ import static android.graphics.Typeface.createFromFile;
 
     }
 
-//     public void LoadPreviousSalatData(){
-//         SharedPreferences salatpref = getSharedPreferences("lastprayertimes", MODE_PRIVATE);
-//
-//         String GETPrayerCity =salatpref.getString("city",getString(R.string.city));
-//         String GETfajr = salatpref.getString("fajr","00:00");
-//         String GETduhur = salatpref.getString("duhur","00:00");
-//         String GETasr = salatpref.getString("asr","00:00");
-//         String GETmaghrib = salatpref.getString("maghrib","00:00");
-//         String GETisha = salatpref.getString("isha","00:00");
-//         String GetsunSet =  salatpref.getString("sunSeting","00:00");
-//         String GetsunRise =  salatpref.getString("sunriseing","00:00");
-//
-//         mCity.setText(GETPrayerCity);
-//         startFajar.setText(timeConverter.TimeConvertTO(GETfajr));
-//         startZuhar.setText(timeConverter.TimeConvertTO(GETduhur));
-//         startAsr.setText(timeConverter.TimeConvertTO(GETasr));
-//         startMagrib.setText(timeConverter.TimeConvertTO(GETmaghrib));
-//         startEsha.setText(timeConverter.TimeConvertTO(GETisha));
-//         sunSet.setText(timeConverter.TimeConvertTO(GetsunSet));
-//         sunRise.setText(timeConverter.TimeConvertTO(GetsunRise));
-//
-//     }
 
      private class GetPrayerTimes extends AsyncTask<Void, Void, Void>  {
 
@@ -502,13 +438,13 @@ import static android.graphics.Typeface.createFromFile;
          int maghriboff =salatpref.getInt("maghriboffset",0);
          int ishaoff =salatpref.getInt("ishaoffset",0);
 
-         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijridat,englishmonth;
+         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijiriyer,hijridat,englishmonth,sehari;
          Boolean Passed=false;
 
          @Override
          protected void onPreExecute() {
              super.onPreExecute();
-             //Toast.makeText(MainActivity.this,getString(R.string.loadingprayertimes),Toast.LENGTH_LONG).show();
+             Toast.makeText(MainActivity.this,getString(R.string.loadingprayertimes),Toast.LENGTH_SHORT).show();
          }
 
 
@@ -517,8 +453,8 @@ import static android.graphics.Typeface.createFromFile;
              HttpHandler sh = new HttpHandler();
              // Making a request to url and getting response
              //String url = "https://api.pray.zone/v2/times/today.json?city="+GETPrayerCity;
-             String offsets = "&tune=0,"+(fajroff-6)+",0,"+(dhuhroff+5)+","+asroff+","+(maghriboff+5)+",0,"+ishaoff+",0" ;
-             String url ="http://api.aladhan.com/v1/timingsByCity?city="+GETPrayerCity+"&country="+GETCountry+"&method=3"+offsets;
+             String offsets = "&tune=0,"+(fajroff-2)+",0,"+(dhuhroff-1)+","+(asroff+60)+","+(maghriboff-2)+",0,"+(ishaoff-4)+",0";
+             String url ="http://api.aladhan.com/v1/timingsByCity?city="+GETPrayerCity+"&country="+GETCountry+"&method=1"+offsets;
              String jsonStr = sh.makeServiceCall(url);
              //Log.e("TAG", "Response from url: " + jsonStr);
              if (jsonStr != null) {
@@ -532,18 +468,18 @@ import static android.graphics.Typeface.createFromFile;
 
                      JSONObject englishmonths = data.getJSONObject("date").getJSONObject("gregorian").getJSONObject("month");
 
-                     JSONObject hijridate = data.getJSONObject("date").getJSONObject("hijri").getJSONObject("hijri");
-
-
-
-
+                     JSONObject hijridate = data.getJSONObject("date").getJSONObject("hijri");
+                     JSONObject hijriyears = data.getJSONObject("date").getJSONObject("hijri");
 
 
                      hijrimonths = hijrimonthsss.getString("en");
+                     hijiriyer = hijriyears.getString("year");
                      hijridat = hijridate.getString("day");
 
                      englishmonth = englishmonths.getString("en");
 
+
+                     sehari = prayertimes.getString("Fajr");
 
                      fajr = prayertimes.getString("Fajr");
                      duhur = prayertimes.getString("Dhuhr");
@@ -574,8 +510,11 @@ import static android.graphics.Typeface.createFromFile;
              }
              return null;
          }
+
+
          @Override
          protected void onPostExecute(Void result) {
+
              super.onPostExecute(result);
              Toast.makeText(getApplicationContext(), getString(R.string.prayertimesloaded), Toast.LENGTH_LONG).show();
              SharedPreferences salatpref = getSharedPreferences("lastprayertimes", MODE_PRIVATE);
@@ -591,6 +530,7 @@ import static android.graphics.Typeface.createFromFile;
 
              editor.apply();
 
+
              startFajar=findViewById(R.id.startFajr);
              startZuhar=findViewById(R.id.startZuhar);
              startAsr=findViewById(R.id.startAsr);
@@ -605,8 +545,13 @@ import static android.graphics.Typeface.createFromFile;
              startMagrib.setText(timeConverter.TimeConvertTO(maghrib));
              startEsha.setText(timeConverter.TimeConvertTO(isha));
 
-             hijrimonth.setText(monthconvart.MonthconvartTo(hijrimonths));
-             hijriDates.setText(hijridat);
+             hijrimonth.setText(monthconvart.MonthconvartTo(hijrimonths)+" ");
+             hijriDates.setText(hijridat+" ");
+             hijriyear.setText(hijiriyer);
+
+
+             iftar.setText(timeConverter.TimeConvertTO(maghrib));
+
 
              enmonth.setText(monthconvart.MonthconvartTo(englishmonth));
 
@@ -614,25 +559,91 @@ import static android.graphics.Typeface.createFromFile;
              sunRise.setText(timeConverter.TimeConvertTO(sunriseing));
              sunSet.setText(timeConverter.TimeConvertTO(sunSeting));
 
-
-             if (Passed) {
-                 String[] time1 = fajr.split(":");
-                 int hh1 = Integer.parseInt(time1[0].trim());
-                 int mm1 = Integer.parseInt(time1[1].trim());
-                 String[] time2 = duhur.split(":");
-                 int hh2 = Integer.parseInt(time2[0].trim());
-                 int mm2 = Integer.parseInt(time2[1].trim());
-                 String[] time3 = asr.split(":");
-                 int hh3 = Integer.parseInt(time3[0].trim());
-                 int mm3 = Integer.parseInt(time3[1].trim());
-                 String[] time4 = maghrib.split(":");
-                 int hh4 = Integer.parseInt(time4[0].trim());
-                 int mm4 = Integer.parseInt(time4[1].trim());
-                 String[] time5 = isha.split(":");
-                 int hh5 = Integer.parseInt(time5[0].trim());
-                 int mm5 = Integer.parseInt(time5[1].trim());
-
-             }
          }
      }
-}
+
+     private class GeshTimes extends AsyncTask<Void, Void, Void>  {
+
+         SharedPreferences salatpref = getSharedPreferences("lastprayertimes", MODE_PRIVATE);
+
+         String GETPrayerCity = salatpref.getString("city", "Dhaka");
+         String GETCountry = salatpref.getString("country", "Bangladesh");
+
+         int fajroff =salatpref.getInt("fajroffset",0);
+
+
+         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijiriyer,hijridat,englishmonth,sehari;
+         Boolean Passed=false;
+
+         @Override
+         protected void onPreExecute() {
+             super.onPreExecute();
+             Toast.makeText(MainActivity.this,getString(R.string.loadingprayertimes),Toast.LENGTH_SHORT).show();
+         }
+
+
+         @Override
+         protected Void doInBackground(Void... arg0) {
+             HttpHandler sh = new HttpHandler();
+             // Making a request to url and getting response
+             //String url = "https://api.pray.zone/v2/times/today.json?city="+GETPrayerCity;
+             String offsets = "&tune=0,"+(fajroff-7)+",0,";
+             String url ="http://api.aladhan.com/v1/timingsByCity?city="+GETPrayerCity+"&country="+GETCountry+"&method=1"+offsets;
+             String jsonStr = sh.makeServiceCall(url);
+             //Log.e("TAG", "Response from url: " + jsonStr);
+             if (jsonStr != null) {
+                 try {
+
+                     JSONObject jsonObj = new JSONObject(jsonStr);
+                     JSONObject data = jsonObj.getJSONObject("data");
+                     JSONObject prayertimes = data.getJSONObject("timings");
+
+
+
+                     fajr = prayertimes.getString("Fajr");
+
+
+                     Passed =true;
+                 } catch (final JSONException e) {
+                     Log.e("TAG", "Json parsing error: " + e.getMessage());
+                     runOnUiThread(new Runnable() {
+                         @Override
+                         public void run() {
+                             Toast.makeText(getApplicationContext(), getString(R.string.errorloadprayertimes), Toast.LENGTH_LONG).show();
+                         }
+                     });
+                 }
+             } else {
+                 Log.e("TAG", "Couldn't get json from server.");
+                 runOnUiThread(new Runnable() {
+                     @Override
+                     public void run() {
+                         Toast.makeText(getApplicationContext(), getString(R.string.errorloadprayertimes), Toast.LENGTH_LONG).show();
+                     }
+                 });
+             }
+             return null;
+         }
+
+
+         @Override
+         protected void onPostExecute(Void result) {
+
+             super.onPostExecute(result);
+             Toast.makeText(getApplicationContext(), getString(R.string.prayertimesloaded), Toast.LENGTH_LONG).show();
+             SharedPreferences salatpref = getSharedPreferences("lastprayertimes", MODE_PRIVATE);
+             SharedPreferences.Editor editor = salatpref.edit();
+             // editor.putString("city", GETPrayerCity);
+             editor.putString("fajr",fajr);
+
+
+             editor.apply();
+
+
+
+
+             sehri.setText(timeConverter.TimeConvertTO(fajr));
+
+         }
+     }
+ }

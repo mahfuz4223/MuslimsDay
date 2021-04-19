@@ -125,8 +125,7 @@ import static android.graphics.Typeface.createFromFile;
 
         try {
             new GetPrayerTimes().execute();
-
-            new GeshTimes().execute();
+            new sehriTimes().execute();
 
             checkInternet();
 //            LoadPreviousSalatData();
@@ -438,7 +437,7 @@ import static android.graphics.Typeface.createFromFile;
          int maghriboff =salatpref.getInt("maghriboffset",0);
          int ishaoff =salatpref.getInt("ishaoffset",0);
 
-         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijiriyer,hijridat,englishmonth,sehari;
+         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijiriyer,hijridat,englishmonth,englishweeks,englishdays;
          Boolean Passed=false;
 
          @Override
@@ -453,7 +452,7 @@ import static android.graphics.Typeface.createFromFile;
              HttpHandler sh = new HttpHandler();
              // Making a request to url and getting response
              //String url = "https://api.pray.zone/v2/times/today.json?city="+GETPrayerCity;
-             String offsets = "&tune=0,"+(fajroff-2)+",0,"+(dhuhroff-1)+","+(asroff+60)+","+(maghriboff-2)+",0,"+(ishaoff-4)+",0";
+             String offsets = "&tune=0,"+(fajroff-2)+",0,"+(dhuhroff-1)+","+(asroff+60)+","+(maghriboff+1)+",0,"+(ishaoff-4)+",0";
              String url ="http://api.aladhan.com/v1/timingsByCity?city="+GETPrayerCity+"&country="+GETCountry+"&method=1"+offsets;
              String jsonStr = sh.makeServiceCall(url);
              //Log.e("TAG", "Response from url: " + jsonStr);
@@ -467,6 +466,8 @@ import static android.graphics.Typeface.createFromFile;
                      JSONObject hijrimonthsss = data.getJSONObject("date").getJSONObject("hijri").getJSONObject("month");
 
                      JSONObject englishmonths = data.getJSONObject("date").getJSONObject("gregorian").getJSONObject("month");
+                     JSONObject englishweek = data.getJSONObject("date").getJSONObject("gregorian").getJSONObject("weekday");
+                     JSONObject englishday = data.getJSONObject("date").getJSONObject("gregorian");
 
                      JSONObject hijridate = data.getJSONObject("date").getJSONObject("hijri");
                      JSONObject hijriyears = data.getJSONObject("date").getJSONObject("hijri");
@@ -477,9 +478,9 @@ import static android.graphics.Typeface.createFromFile;
                      hijridat = hijridate.getString("day");
 
                      englishmonth = englishmonths.getString("en");
+                     englishweeks = englishweek.getString("en");
+                     englishdays = englishday.getString("day");
 
-
-                     sehari = prayertimes.getString("Fajr");
 
                      fajr = prayertimes.getString("Fajr");
                      duhur = prayertimes.getString("Dhuhr");
@@ -554,6 +555,9 @@ import static android.graphics.Typeface.createFromFile;
 
 
              enmonth.setText(monthconvart.MonthconvartTo(englishmonth));
+             enweek.setText(monthconvart.MonthconvartTo(englishweeks)+" ");
+             enDate.setText(englishdays+" ");
+
 
              //SunSet SunRise
              sunRise.setText(timeConverter.TimeConvertTO(sunriseing));
@@ -562,7 +566,9 @@ import static android.graphics.Typeface.createFromFile;
          }
      }
 
-     private class GeshTimes extends AsyncTask<Void, Void, Void>  {
+
+    //সেহিরির সময়
+     private class sehriTimes extends AsyncTask<Void, Void, Void>  {
 
          SharedPreferences salatpref = getSharedPreferences("lastprayertimes", MODE_PRIVATE);
 
@@ -572,7 +578,9 @@ import static android.graphics.Typeface.createFromFile;
          int fajroff =salatpref.getInt("fajroffset",0);
 
 
-         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijiriyer,hijridat,englishmonth,sehari;
+
+         String fajr;
+
          Boolean Passed=false;
 
          @Override
@@ -597,6 +605,9 @@ import static android.graphics.Typeface.createFromFile;
                      JSONObject jsonObj = new JSONObject(jsonStr);
                      JSONObject data = jsonObj.getJSONObject("data");
                      JSONObject prayertimes = data.getJSONObject("timings");
+
+
+
 
 
                      fajr = prayertimes.getString("Fajr");
@@ -635,14 +646,14 @@ import static android.graphics.Typeface.createFromFile;
              // editor.putString("city", GETPrayerCity);
              editor.putString("fajr",fajr);
 
-
              editor.apply();
-
-
 
 
              sehri.setText(timeConverter.TimeConvertTO(fajr));
 
          }
      }
+
+
+
  }

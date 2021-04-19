@@ -599,7 +599,6 @@ import static android.graphics.Typeface.createFromFile;
                      JSONObject prayertimes = data.getJSONObject("timings");
 
 
-
                      fajr = prayertimes.getString("Fajr");
 
 

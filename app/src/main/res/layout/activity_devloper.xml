@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Devloper"
+    android:background="#CBFFFFFF"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        app:title="Developer"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/absender1"
+        android:gravity="center"
+        android:text="Developed By"
+        android:textColor="#37474f"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cfd8dc"
+        android:id="@+id/card1">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#cfd8dc">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                android:clickable="false"
+                android:padding="10sp"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:weightSum="2"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:background="#25919191"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:id="@+id/developer"
+                                android:layout_width="96dp"
+                                android:layout_height="96dp"
+                                android:src="@drawable/dark"
+                                app:civ_border_color="#040404"
+                                app:civ_border_width="2dp" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:weightSum="2"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:fontFamily="@font/absender1"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    android:text="DARK SOFT BD"
+                                    android:textColor="#4A4A4A"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/absender1"
+        android:gravity="center"
+        android:text="সহযোগিতায়"
+        android:textColor="#37474f"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cfd8dc">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkable="false"
+            android:clickable="false"
+            android:padding="10sp"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:weightSum="2"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:background="#25919191"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <de.hdodenhof.circleimageview.CircleImageView
+                           android:padding="10dp"
+                           android:layout_gravity="center"
+                           android:id="@+id/sponsor"
+                           android:layout_width="96dp"
+                           android:layout_height="96dp"
+                           android:src="@drawable/sponsorrrr"
+                           app:civ_border_color="#304FFE"
+                           app:civ_border_width="2dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:fontFamily="@font/absender1"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:text="পার্পল স্পার্ক আইটি"
+                                android:textColor="#AA00FF"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/sponsorurl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="10dp"
+                                android:fontFamily="@font/absender1"
+                                android:gravity="center"
+                                android:text="purplesparkit.com"
+                                android:textColor="#37474f"
+                                android:textSize="20dp"
+                                android:onClick="sponsorurl"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                   </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginBottom="250dp"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="যেকোন সমস্যার জন্য রিপোর্ট করুন"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:onClick="feedback"
+            android:fontFamily="@font/solaimanlipi"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

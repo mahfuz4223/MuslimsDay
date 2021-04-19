@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single"
+        android:orderInCategory="@android:integer/config_shortAnimTime"
+        android:menuCategory="secondary">
+
+
+        <item android:id="@+id/all_surah"
+            android:icon="@drawable/ic_quranb"
+            android:title="প্রয়োজনীয় সূরা সমুহ"/>
+
+        <item android:id="@+id/compassCard"
+            android:icon="@drawable/ic_compass"
+            android:title="কিবলা নির্ণয়"/>
+
+        <item android:id="@+id/kalima"
+            android:icon="@drawable/ic_quran"
+            android:title="কালিমা সমূহ"/>
+
+        <item
+            android:id="@+id/quran"
+            android:icon="@drawable/quranrehal"
+            android:title="কুরআন" />
+        <item
+            android:id="@+id/namazShikkaid"
+            android:icon="@drawable/ic_mosque_a"
+            android:title="নামাজ শিক্ষা" />
+        <item
+            android:id="@+id/tasbih"
+            android:icon="@drawable/ic_tasbih_2"
+            android:title="তাসবিহ পাঠ" />
+        <item
+            android:id="@+id/name"
+            android:icon="@drawable/ic_tasbih_2"
+            android:title="আল্লাহর ৯৯ টি নাম" />
+
+
+
+
+
+        <item android:title="Developer">
+
+            <menu>
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/ic_baseline_about"
+                    android:title="About" />
+
+                <item android:id="@+id/developer"
+                    android:icon="@drawable/ic_baseline_developer_mode_24"
+                    android:title="Developer"/>
+            </menu>
+        </item>
+
+    </group>
+
+</menu>

@@ -95,6 +95,7 @@ import static android.graphics.Typeface.createFromFile;
      private com.al.tobangla.views.BNTextView sehri;
      private com.al.tobangla.views.BNTextView hijriDates,startFajar,endFajar,startZuhar, startAsr, startMagrib, startEsha,endZuhar, endAsr, endMagrib, endEsha,enDate,hijriyear;
 
+
      private ImageButton alarm_button_isha,alarm_button_magrib,alarm_button_asr,alarm_button_zuhar,alarm_button_fajr;
 
      private TextView hijrimonth,enmonth,enweek;

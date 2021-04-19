@@ -90,7 +90,6 @@ import static android.graphics.Typeface.createFromFile;
     private MaterialCardView countdownCardView;
 
 
-
      private com.al.tobangla.views.BNTextView iftar;
      private com.al.tobangla.views.BNTextView sehri;
      private com.al.tobangla.views.BNTextView hijriDates,startFajar,endFajar,startZuhar, startAsr, startMagrib, startEsha,endZuhar, endAsr, endMagrib, endEsha,enDate,hijriyear;
@@ -503,7 +502,7 @@ import static android.graphics.Typeface.createFromFile;
          int maghriboff =salatpref.getInt("maghriboffset",0);
          int ishaoff =salatpref.getInt("ishaoffset",0);
 
-         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing;
+         String fajr,duhur,asr,maghrib,isha,sunSeting,sunriseing,hijrimonths,hijridat,englishmonth;
          Boolean Passed=false;
 
          @Override
@@ -528,6 +527,23 @@ import static android.graphics.Typeface.createFromFile;
                      JSONObject jsonObj = new JSONObject(jsonStr);
                      JSONObject data = jsonObj.getJSONObject("data");
                      JSONObject prayertimes = data.getJSONObject("timings");
+
+                     JSONObject hijrimonthsss = data.getJSONObject("date").getJSONObject("hijri").getJSONObject("month");
+
+                     JSONObject englishmonths = data.getJSONObject("date").getJSONObject("gregorian").getJSONObject("month");
+
+                     JSONObject hijridate = data.getJSONObject("date").getJSONObject("hijri").getJSONObject("hijri");
+
+
+
+
+
+
+                     hijrimonths = hijrimonthsss.getString("en");
+                     hijridat = hijridate.getString("day");
+
+                     englishmonth = englishmonths.getString("en");
+
 
                      fajr = prayertimes.getString("Fajr");
                      duhur = prayertimes.getString("Dhuhr");
@@ -588,6 +604,11 @@ import static android.graphics.Typeface.createFromFile;
              startAsr.setText(timeConverter.TimeConvertTO(asr));
              startMagrib.setText(timeConverter.TimeConvertTO(maghrib));
              startEsha.setText(timeConverter.TimeConvertTO(isha));
+
+             hijrimonth.setText(monthconvart.MonthconvartTo(hijrimonths));
+             hijriDates.setText(hijridat);
+
+             enmonth.setText(monthconvart.MonthconvartTo(englishmonth));
 
              //SunSet SunRise
              sunRise.setText(timeConverter.TimeConvertTO(sunriseing));

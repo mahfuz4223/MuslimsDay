@@ -3,6 +3,7 @@
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -94,6 +95,7 @@ import static android.graphics.Typeface.createFromFile;
 
      private String sFajar, sZuhar, sAsr, sMagrib, sIsha;
 
+     public ProgressDialog progressDialog;
 
 
      TextView mCity;
@@ -122,16 +124,13 @@ import static android.graphics.Typeface.createFromFile;
         checkAllPermission();
 
 
-
-
-
         try {
             new GetPrayerTimes().execute();
             new sehriTimes().execute();
             checkInternet();
 
 
-//            LoadPreviousSalatData();
+// :fire           LoadPreviousSalatData()
         } catch (Exception e) {
             Toast.makeText(this, "Network Error", Toast.LENGTH_SHORT).show();
         }
@@ -161,9 +160,7 @@ import static android.graphics.Typeface.createFromFile;
             public void onError(String error) {
                 // Do something
             }
-        }).execute();
-
-    }
+        }).execute(); }
 
      private long backPressedTime;
      private Toast backToast;
@@ -192,6 +189,7 @@ import static android.graphics.Typeface.createFromFile;
             finish();
         }
     }
+
      public void SalatSettings(View v){
          Intent intent= new Intent(this,SalatSettings.class);
          startActivity(intent);
@@ -305,7 +303,6 @@ import static android.graphics.Typeface.createFromFile;
                 return false;
             }
         });
-
 
     }
 
@@ -448,6 +445,19 @@ import static android.graphics.Typeface.createFromFile;
          protected void onPreExecute() {
              super.onPreExecute();
              Toast.makeText(MainActivity.this,getString(R.string.loadingprayertimes),Toast.LENGTH_SHORT).show();
+
+
+             progressDialog = new ProgressDialog(MainActivity.this);
+
+             progressDialog.show();
+
+             progressDialog.setContentView(R.layout.dialog);
+
+             progressDialog.setCancelable(false);
+             progressDialog.getWindow().setBackgroundDrawableResource(
+                     android.R.color.transparent
+             );
+
          }
 
 
@@ -520,6 +530,7 @@ import static android.graphics.Typeface.createFromFile;
          @Override
          protected void onPostExecute(Void result) {
 
+             progressDialog.dismiss();
              super.onPostExecute(result);
              Toast.makeText(getApplicationContext(), getString(R.string.prayertimesloaded), Toast.LENGTH_LONG).show();
              SharedPreferences salatpref = getSharedPreferences("lastprayertimes", MODE_PRIVATE);

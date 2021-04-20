@@ -35,6 +35,10 @@
             android:id="@+id/name"
             android:icon="@drawable/ic_tasbih_2"
             android:title="আল্লাহর ৯৯ টি নাম" />
+        <item
+            android:id="@+id/setting"
+            android:icon="@drawable/exo_ic_settings"
+            android:title="Setting" />
 
 
 

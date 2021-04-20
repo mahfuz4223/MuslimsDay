@@ -83,6 +83,10 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="city">City</string>
     <string name="loadingprayertimes">Loading....</string>
+    <string name="title_settings">Settings</string>
+    <string name="calendar">Calendar</string>
+    <string name="dialog_title_hijri_day_adjustment_preference">Adjust Hijri date</string>
+    <string name="title_hijri_day_adjustment_preference">Hijri date adjustment</string>
 
 
 </resources>

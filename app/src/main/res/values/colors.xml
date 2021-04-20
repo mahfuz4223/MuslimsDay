@@ -11,4 +11,42 @@
     <color name="whitetext">#FFFFFFFF</color>
     <color name="bgColor">#E5E9EB</color>
     <color name="backgrounddarkColor">#2b2e4a</color>
+
+    <color name="preferences_title">@color/mine_shaft</color>
+    <color name="preferences_summary">@color/scorpion</color>
+    <color name="preferences_disabled_text">@color/nobel</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="scorpion">#605F5F</color>
+    <color name="slate_gray">#738497</color>
+    <color name="gallery">#EEEEEE</color>
+    <color name="ebony_clay">#213040</color>
+    <color name="mirage">#1C2C3B</color>
+    <color name="pickled_bluewood">#253544</color>
+    <color name="carnation">#F56662</color>
+
+    <color name="mystic">#DDE5EB</color>
+    <color name="flirt">#9B0493</color>
+    <color name="pigment_indigo">#510391</color>
+    <color name="mine_shaft">#212121</color>
+
+    <color name="french_lilac">#E1BEE7</color>
+    <color name="boulder">#757575</color>
+    <color name="silver">#BDBDBD</color>
+    <color name="amaranth">#E91E63</color>
+    <color name="aquamarine_blue">#6DE3D1</color>
+    <color name="polar">#EAFAFA</color>
+    <color name="dew">#FBFFFE</color>
+    <color name="zircon">#F5F6FF</color>
+    <color name="dodger_blue">#17C5FF</color>
+    <color name="stratos">#000C59</color>
+    <color name="scarlet">#FF3700</color>
+    <color name="turbo">#FFE500</color>
+    <color name="scotch_mist">#FFFEF4</color>
+    <color name="spray">#7FDDED</color>
+    <color name="black_squeeze">#EBF6F8</color>
+    <color name="rosewood">#530101</color>
+    <color name="thunderbird">#C4161C</color>
+    <color name="catskill_white">#F4F6FA</color>
+    <color name="nobel">#B3B2B2</color>
 </resources>

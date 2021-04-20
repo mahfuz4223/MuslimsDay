@@ -76,5 +76,7 @@ dependencies {
 
     implementation 'com.webianks.library:easy-feedback:1.0.5'
 
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
+
 
 }

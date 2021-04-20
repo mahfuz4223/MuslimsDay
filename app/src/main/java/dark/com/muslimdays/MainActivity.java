@@ -1,44 +1,46 @@
  package dark.com.muslimdays;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
+import android.os.Looper;
 import android.provider.AlarmClock;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
+import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.navigation.NavigationView;
 import com.karumi.dexter.Dexter;
@@ -50,29 +52,21 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
+import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
+import java.util.Locale;
 
 
 import dark.com.muslimdays.Allah99Name.AllahAr99NamAndFojilotMainActivity;
-import dark.com.muslimdays.Allah99Name.AllahMainActivity;
 import dark.com.muslimdays.Azan.AzanActivity;
 import dark.com.muslimdays.ImportentSurah.ImportantSuraActivity;
 import dark.com.muslimdays.NamazShikkha.NanazShikkahActivity;
-import dark.com.muslimdays.Tools.AppController;
 import dark.com.muslimdays.Tools.AppInternetStatus;
 import dark.com.muslimdays.Tools.InternetCheckActivity;
 import dark.com.muslimdays.Tools.Monthconvart;
 import dark.com.muslimdays.Tools.TimeConverter;
 import dark.com.muslimdays.kalima.KalimaActivity;
 import dark.com.muslimdays.kibla.CompassActivity;
-import hotchemi.android.rate.AppRate;
 import p32929.updaterlib.AppUpdater;
 import p32929.updaterlib.UpdateListener;
 import p32929.updaterlib.UpdateModel;
@@ -100,7 +94,11 @@ import static android.graphics.Typeface.createFromFile;
 
      private String sFajar, sZuhar, sAsr, sMagrib, sIsha;
 
+
+
      TextView mCity;
+
+
 
      private com.al.tobangla.views.BNTextView sunRise, sunSet;
 
@@ -123,11 +121,16 @@ import static android.graphics.Typeface.createFromFile;
         SetupNavDrawer();
         checkAllPermission();
 
+
+
+
+
         try {
             new GetPrayerTimes().execute();
             new sehriTimes().execute();
-
             checkInternet();
+
+
 //            LoadPreviousSalatData();
         } catch (Exception e) {
             Toast.makeText(this, "Network Error", Toast.LENGTH_SHORT).show();
@@ -160,9 +163,7 @@ import static android.graphics.Typeface.createFromFile;
             }
         }).execute();
 
-
     }
-
 
      private long backPressedTime;
      private Toast backToast;
@@ -297,6 +298,9 @@ import static android.graphics.Typeface.createFromFile;
                 }
                 if (item.getItemId() == R.id.developer) {
                     startActivity(new Intent(MainActivity.this, Devloper.class));
+                } if (item.getItemId() == R.id.setting) {
+                    startActivity(new Intent(MainActivity.this, SalatSettings.class));
+                    finish();
                 }
                 return false;
             }
@@ -394,7 +398,7 @@ import static android.graphics.Typeface.createFromFile;
 
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.INTERNET,
-                        Manifest.permission.ACCESS_NETWORK_STATE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION)
+                        Manifest.permission.ACCESS_NETWORK_STATE)
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport report) {

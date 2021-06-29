@@ -53,8 +53,37 @@
         <activity android:name=".kibla.CompassActivity" />
         <activity android:name=".ImportentSurah.SuraContentView" />
         <activity android:name=".kalima.KalimaContentView" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".SalatSettings" />
+
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".activity.AyahWordActivity"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.TafsirActivity"
+            android:parentActivityName=".activity.AyahWordActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.AyahWordActivity" />
+        </activity>
+
     </application>
 
 </manifest>

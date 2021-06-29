@@ -3,28 +3,15 @@ package dark.com.muslimdays;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import org.json.JSONObject;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import dark.com.muslimdays.Tools.AppInternetStatus;
 import dark.com.muslimdays.Tools.InternetCheckActivity;
-import p32929.updaterlib.AppUpdater;
-import p32929.updaterlib.UpdateListener;
-import p32929.updaterlib.UpdateModel;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -52,7 +39,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private void checkInternet() {
         if (AppInternetStatus.getInstance(this).isOnline()) {
             Log.d("TAG", "checkInternet: Internet Connected" );
-            Intent SplashIntent = new Intent(SplashScreenActivity.this,MainActivity.class);
+            Intent SplashIntent = new Intent(SplashScreenActivity.this, HomeActivity.class);
             startActivity(SplashIntent);
             finish();
 

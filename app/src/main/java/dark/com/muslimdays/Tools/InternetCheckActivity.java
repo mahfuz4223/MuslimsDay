@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
-import dark.com.muslimdays.MainActivity;
+import dark.com.muslimdays.HomeActivity;
 import dark.com.muslimdays.R;
 
 public class InternetCheckActivity extends AppCompatActivity {
@@ -56,7 +56,7 @@ public class InternetCheckActivity extends AppCompatActivity {
                 if (AppInternetStatus.getInstance(getApplicationContext()).isOnline()) {
                     Log.d("TAG", "checkInternet: Internet Connected" );
                     Toast.makeText(getApplicationContext(), "ইন্টারনেট সংযোগ সফল হয়েছে।", Toast.LENGTH_SHORT).show();
-                    Intent SplashIntent = new Intent(InternetCheckActivity.this, MainActivity.class);
+                    Intent SplashIntent = new Intent(InternetCheckActivity.this, HomeActivity.class);
                     startActivity(SplashIntent);
                     finish();
                 }else {

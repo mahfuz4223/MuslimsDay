@@ -196,7 +196,7 @@ public class SalatSettings extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent= new Intent(this,MainActivity.class);
+        Intent intent= new Intent(this, HomeActivity.class);
         overridePendingTransition(0, 0);
         startActivity(intent);
         overridePendingTransition(0, 0);

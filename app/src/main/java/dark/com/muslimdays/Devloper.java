@@ -17,11 +17,6 @@ public class Devloper extends AppCompatActivity {
         setContentView(R.layout.activity_devloper);
     }
 
-    public void sponsorurl(View view) {
-        Uri uri = Uri.parse("https://purplesparkit.com/");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
-    }
 
     public void feedback(View view) {
         new EasyFeedback.Builder(this)

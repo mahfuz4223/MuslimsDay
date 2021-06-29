@@ -50,7 +50,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
 
 
@@ -796,46 +796,46 @@
                     app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/countdownCardView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:contextClickable="false"
-                            android:layout_margin="5sp"
-                            android:clickable="true"
-                            android:padding="5sp">
+<!--                        <com.google.android.material.card.MaterialCardView-->
+<!--                            android:id="@+id/countdownCardView"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:contextClickable="false"-->
+<!--                            android:layout_margin="5sp"-->
+<!--                            android:clickable="true"-->
+<!--                            android:padding="5sp">-->
 
-                            <LinearLayout
-                                android:layout_gravity="center"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+<!--                            <LinearLayout-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:orientation="vertical">-->
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/white"
-                                    android:background="@color/colorPrimary"
-                                    android:text="পবিত্র রমজান মাসের এর আর বাকি"
-                                    android:textAlignment="center"/>
+<!--                                <TextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:background="@color/colorPrimary"-->
+<!--                                    android:text="পবিত্র রমজান মাসের এর আর বাকি"-->
+<!--                                    android:textAlignment="center"/>-->
 
 
-                                <com.al.tobangla.views.BNTextView
-                                    android:id="@+id/countDownTextView"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/text"
-                                    android:textSize="16sp"
-                                    android:text="00:00:00:00"
-                                    android:textAlignment="center"/>
-                            </LinearLayout>
-                        </com.google.android.material.card.MaterialCardView>
-                    </LinearLayout>
+<!--                                <com.al.tobangla.views.BNTextView-->
+<!--                                    android:id="@+id/countDownTextView"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:textColor="@color/text"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:text="00:00:00:00"-->
+<!--                                    android:textAlignment="center"/>-->
+<!--                            </LinearLayout>-->
+<!--                        </com.google.android.material.card.MaterialCardView>-->
+<!--                    </LinearLayout>-->
 
 <!--                    <LinearLayout-->
 <!--                        android:layout_width="match_parent"-->

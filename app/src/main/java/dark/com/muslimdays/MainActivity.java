@@ -81,12 +81,10 @@ import static android.graphics.Typeface.createFromFile;
     private NavigationView navigationView;
     private Toolbar topAppBar;
 
-    private TextView countdownTextView;
-    private MaterialCardView countdownCardView;
 
      private com.al.tobangla.views.BNTextView iftar;
      private com.al.tobangla.views.BNTextView sehri;
-     private com.al.tobangla.views.BNTextView hijriDates,startFajar,endFajar,startZuhar, startAsr, startMagrib, startEsha,endZuhar, endAsr, endMagrib, endEsha,enDate,hijriyear;
+     private com.al.tobangla.views.BNTextView hijriDates,startFajar,startZuhar, startAsr, startMagrib, startEsha,enDate,hijriyear;
 
 
      private ImageButton alarm_button_isha,alarm_button_magrib,alarm_button_asr,alarm_button_zuhar,alarm_button_fajr;
@@ -217,7 +215,6 @@ import static android.graphics.Typeface.createFromFile;
 
         iftar = findViewById(R.id.iftarID);
         sehri = findViewById(R.id.sehriID);
-        countdownTextView = findViewById(R.id.countDownTextView);
 
         sunRise = findViewById(R.id.sunrise);
         sunSet = findViewById(R.id.sunset);
@@ -234,7 +231,7 @@ import static android.graphics.Typeface.createFromFile;
         alarm_button_magrib.setOnClickListener(this);
         alarm_button_isha.setOnClickListener(this);
 
-        countdownCardView = findViewById(R.id.countdownCardView);
+
 
 
 

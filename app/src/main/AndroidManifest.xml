@@ -24,7 +24,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NamazTimeApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Devloper"></activity>
+        <activity android:name=".Test"></activity>
+        <activity android:name=".Devloper" />
         <activity android:name=".Azan.ExoPlayerActivity" />
         <activity android:name=".Azan.AzanActivity" />
         <activity android:name=".SplashScreenActivity">

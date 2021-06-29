@@ -36,7 +36,7 @@ public class Monthconvart {
                 return "শাওয়াল";
 
             case "Dhū al-Qaʿdah":
-                return "জুল  কাইদাহ";
+                return "জুল কাইদাহ";
 
             case "Dhū al-Ḥijjah":
                 return "জুল হিজ্জাহ";

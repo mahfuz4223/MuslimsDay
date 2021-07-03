@@ -21,5 +21,6 @@
 <li>Tasbih counter</li>
 <li>Counter for missed prayers</li>
 <li>Islamic blog topics or etc</li>
+<li>Zakat Calculator</li>
 <li>A large set of downloadable Sounds (Azan, Du'a, etc.)</li>
 </ol>

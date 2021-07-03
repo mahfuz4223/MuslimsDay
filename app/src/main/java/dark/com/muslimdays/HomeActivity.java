@@ -75,6 +75,8 @@ import static android.graphics.Typeface.createFromFile;
 
      private String sFajar, sZuhar, sAsr, sMagrib, sIsha;
 
+
+
      public ProgressDialog progressDialog;
 
 

@@ -37,12 +37,36 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/top_app_bar"
             app:navigationIcon="@drawable/ic_menu_24dp"
-            app:title="নামাজের সময় সূচি" />
+            app:title="নামাজের সময় সূচি" >
+
+
+        <ImageView
+            android:layout_marginLeft="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_baseline_add_location_24" />
+
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/changa_light"
+            android:gravity="clip_horizontal"
+            android:onClick="SalatSettings"
+            android:padding="2dp"
+            android:text="@string/city"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/whitetext" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +74,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="match_parent">
 
 
                 <LinearLayout
@@ -76,7 +99,6 @@
                         android:layout_height="100dp"
                         android:layout_margin="3sp"
                         android:layout_weight="1">
-
 
                         <LinearLayout
                             android:layout_marginTop="20dp"
@@ -114,10 +136,8 @@
                                 android:fontFamily="@font/solaimanlipi"/>
 
 
-
-
-
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
@@ -159,7 +179,6 @@
 
 
                         </LinearLayout>
-
 
 
 
@@ -244,81 +263,147 @@
                     </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-
-
-
                 </LinearLayout>
 
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
                         <LinearLayout
-                            android:background="@drawable/rounded_corners_bgg"
-                            android:id="@+id/linearLayout3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10sp"
-                            android:layout_marginTop="2sp"
-                            android:layout_marginRight="10sp"
                             android:orientation="horizontal"
-                            android:padding="5sp"
-                            android:weightSum="3"
-                            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                            android:padding="2sp"
+                            android:weightSum="2">
 
-
-<!--                            <TextView-->
-<!--                                android:fontFamily="@font/solaimanlipi"-->
-<!--                                android:layout_width="0sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_weight="1.5"-->
-<!--                                android:text="বিভাগ নির্বাচন করুন-"-->
-<!--                                android:textAlignment="center"-->
-<!--                                android:textColor="@color/whitetext"-->
-<!--                                android:textSize="16sp" />-->
-
-
-<!--                            <Spinner-->
-<!--                                android:id="@+id/spinnerFirst"-->
-<!--                                android:layout_width="0sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_weight="1.5"-->
-<!--                                android:entries="@array/planets_array"-->
-<!--                                android:padding="5sp"-->
-<!--                                android:textColor="@color/whitetext"-->
-<!--                                android:spinnerMode="dropdown"-->
-<!--                                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                                app:layout_constraintStart_toStartOf="parent"-->
-<!--                                app:layout_constraintTop_toTopOf="parent" />-->
-
-
-
-                                <ImageView
-                                    android:layout_marginLeft="25dp"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp"
-                                    android:src="@drawable/ic_baseline_add_location_24" />
-
-                            <TextView
-                                android:id="@+id/city"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginLeft="40dp"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/changa_light"
-                                android:onClick="SalatSettings"
-                                android:textColor="@color/whitetext"
-                                android:text="@string/city"
-                                android:textSize="20sp" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center|top"
+                                android:orientation="vertical">
 
 
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="3sp"
+                                    android:layout_gravity="center_horizontal|center"
+                                    tools:ignore="MissingConstraints">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@color/colorPrimary"
+                                        android:padding="3sp"
+                                        android:text="সেহরি ও ইফতার "
+                                        android:textAlignment="center"
+                                        android:textColor="@color/white" />
+
+
+
+
+
+                                <LinearLayout
+                                    android:weightSum="2"
+
+                                    android:layout_marginTop="15dp"
+                                    android:layout_gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:orientation="horizontal">
+
+
+
+                                        <LinearLayout
+                                            android:layout_margin="5dp"
+                                            android:padding="10dp"
+                                            android:layout_width="150dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                            <TextView
+                                                android:layout_marginTop="10dp"
+                                                android:layout_width="wrap_content"
+                                                android:layout_gravity="center|center_horizontal"
+                                                android:gravity="center"
+                                                android:layout_height="wrap_content"
+                                                android:text="সেহরি শেষ সময়"
+                                                android:fontFamily="@font/solaimanlipi"
+                                                android:textColor="@color/purple_700" />
+
+
+                                            <com.al.tobangla.views.BNTextView
+                                                android:layout_marginBottom="5dp"
+                                                android:layout_marginTop="5dp"
+                                                android:id="@+id/sehriID"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="25dp"
+                                                android:gravity="center"
+                                                android:text="00:00"
+                                                android:fontFamily="@font/solaimanlipi"
+                                                android:textColor="@color/purple_700" />
+                                        </LinearLayout>
+
+
+
+                                        <LinearLayout
+                                            android:layout_margin="5dp"
+                                            android:padding="10dp"
+                                            android:layout_width="150dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                            <TextView
+                                                android:layout_marginTop="5dp"
+                                                android:layout_width="wrap_content"
+                                                android:layout_gravity="center|center_horizontal"
+                                                android:gravity="center"
+                                                android:layout_height="wrap_content"
+                                                android:text="আজকের ইফতার"
+                                                android:fontFamily="@font/solaimanlipi"
+                                                android:textColor="@color/purple_700" />
+
+
+                                            <com.al.tobangla.views.BNTextView
+                                                android:layout_marginBottom="5dp"
+                                                android:layout_marginTop="5dp"
+                                                android:id="@+id/iftarID"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="25dp"
+                                                android:gravity="center"
+                                                android:text="00:00"
+                                                android:fontFamily="@font/solaimanlipi"
+                                                android:textColor="@color/purple_700" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
                         </LinearLayout>
-
-
-
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
 
                 <com.google.android.material.card.MaterialCardView
+
                     android:layout_marginTop="5dp"
                     android:id="@+id/materialCardView"
                     android:layout_width="match_parent"
@@ -330,7 +415,7 @@
                     android:padding="5sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -637,537 +722,105 @@
 
                     </LinearLayout>
 
-
-
-
                 </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView2"
+
+
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:id="@+id/newtolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="5dp"
-                    app:layout_constraintBottom_toTopOf="@+id/scrollView27"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+                    android:orientation="vertical"
+                    tools:ignore="MissingConstraints"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+                    >
 
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <LinearLayout
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="3dp">
+
+                        <Button
+                            android:id="@+id/quranbtn"
+                            style="@style/bg"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="2sp"
-                            android:weightSum="3">
+                            android:layout_height="70dp"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:width="0dp"
+                            android:tag="1"
+                            android:text="কুরআন"
+                            android:textSize="19dp"
+                            android:onClick="quranbtn"
+                            />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center|top"
-
-                                android:orientation="vertical">
-                                <com.google.android.material.card.MaterialCardView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="100dp"
-                                    android:layout_margin="3sp"
-                                    android:layout_gravity="center_horizontal|center"
-                                    tools:ignore="MissingConstraints">
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:background="@color/colorPrimary"
-                                        android:padding="3sp"
-                                        android:text="সেহরি ও ইফতার "
-                                        android:textAlignment="center"
-                                        android:textColor="@color/white" />
-                                    <LinearLayout
-                                        android:layout_marginTop="15dp"
-                                        android:layout_gravity="center"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:weightSum="2"
-                                        android:orientation="horizontal">
-
-
-                                        <LinearLayout
-                                            android:layout_margin="10dp"
-                                            android:padding="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:gravity="center"
-                                            android:orientation="vertical">
-
-
-                                            <TextView
-                                                android:layout_marginTop="10dp"
-                                                android:layout_width="wrap_content"
-                                                android:layout_gravity="center|center_horizontal"
-                                                android:gravity="center"
-                                                android:layout_height="wrap_content"
-                                                android:text="সেহরি শেষ সময়"
-                                                android:fontFamily="@font/solaimanlipi"
-                                                android:textColor="@color/purple_700" />
-
-
-                                            <com.al.tobangla.views.BNTextView
-                                                android:layout_marginBottom="10dp"
-                                                android:layout_marginTop="5dp"
-                                                android:id="@+id/sehriID"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="25dp"
-                                                android:gravity="center"
-                                                android:text="00:00"
-                                                android:fontFamily="@font/solaimanlipi"
-                                                android:textColor="@color/purple_700" />
-
-
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_margin="10dp"
-                                            android:padding="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:gravity="center"
-                                            android:orientation="vertical">
-
-
-                                            <TextView
-                                                android:layout_marginTop="10dp"
-                                                android:layout_width="wrap_content"
-                                                android:layout_gravity="center|center_horizontal"
-                                                android:gravity="center"
-                                                android:layout_height="wrap_content"
-                                                android:text="আজকের ইফতার"
-                                                android:fontFamily="@font/solaimanlipi"
-                                                android:textColor="@color/purple_700" />
-
-
-                                            <com.al.tobangla.views.BNTextView
-                                                android:layout_marginBottom="10dp"
-                                                android:layout_marginTop="5dp"
-                                                android:id="@+id/iftarID"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="25dp"
-                                                android:gravity="center"
-                                                android:text="00:00"
-                                                android:fontFamily="@font/solaimanlipi"
-                                                android:textColor="@color/purple_700" />
-
-
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-
-                                </com.google.android.material.card.MaterialCardView>
-
-                            </LinearLayout>
-
-
-
-
-                        </LinearLayout>
-
+                        <Button
+                            android:id="@+id/qublabtn"
+                            style="@style/bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:width="0dp"
+                            android:gravity="center"
+                            android:tag="2"
+                            android:text="কিবলা নির্ণয়"
+                            android:textSize="17dp"
+                            android:onClick="qublabtn"
+                            />
                     </LinearLayout>
 
 
-
-
-
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <ScrollView
-                    android:id="@+id/scrollView27"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
-
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal">-->
-
-<!--                        <com.google.android.material.card.MaterialCardView-->
-<!--                            android:id="@+id/countdownCardView"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:contextClickable="false"-->
-<!--                            android:layout_margin="5sp"-->
-<!--                            android:clickable="true"-->
-<!--                            android:padding="5sp">-->
-
-<!--                            <LinearLayout-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:orientation="vertical">-->
-
-<!--                                <TextView-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:textColor="@color/white"-->
-<!--                                    android:background="@color/colorPrimary"-->
-<!--                                    android:text="পবিত্র রমজান মাসের এর আর বাকি"-->
-<!--                                    android:textAlignment="center"/>-->
-
-
-<!--                                <com.al.tobangla.views.BNTextView-->
-<!--                                    android:id="@+id/countDownTextView"-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:textColor="@color/text"-->
-<!--                                    android:textSize="16sp"-->
-<!--                                    android:text="00:00:00:00"-->
-<!--                                    android:textAlignment="center"/>-->
-<!--                            </LinearLayout>-->
-<!--                        </com.google.android.material.card.MaterialCardView>-->
-<!--                    </LinearLayout>-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical">-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:gravity="center"-->
-<!--                            android:orientation="horizontal">-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/namazShikkaid"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_mosque_a" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="নামাজ শিক্ষা"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/rakatTabelCard"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_mosque_b" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="রাকাত টেবিলা"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/ojurNiyomCard"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_oju" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="অজুর নিয়ম"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:gravity="center"-->
-<!--                            android:orientation="horizontal">-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/all_surah"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_quranb" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="প্রয়োজনীয় সূরা সমুহ"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/compassCard"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_compass" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="কিবলা নির্ণয়"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/tasbih"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_tasbih_2" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="তাসবিহ পাঠ"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:gravity="center"-->
-<!--                            android:orientation="horizontal">-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/allah_99Name"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_allah" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="আল্লাহর ৯৯ নাম"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-<!--                            <com.google.android.material.card.MaterialCardView-->
-<!--                                android:id="@+id/kalima"-->
-<!--                                android:layout_width="100sp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_margin="5dp"-->
-<!--                                android:clickable="true"-->
-<!--                                app:cardCornerRadius="5dp">-->
-
-<!--                                <LinearLayout-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:gravity="center"-->
-<!--                                    android:orientation="vertical"-->
-<!--                                    android:padding="6sp">-->
-
-<!--                                    <ImageView-->
-<!--                                        android:layout_width="50sp"-->
-<!--                                        android:layout_height="50sp"-->
-<!--                                        android:src="@drawable/ic_quran" />-->
-
-<!--                                    <TextView-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:text="কালিমা সমূহ"-->
-<!--                                        android:textSize="10sp"-->
-<!--                                        android:textColor="@color/text"/>-->
-
-
-<!--                                </LinearLayout>-->
-
-
-<!--                            </com.google.android.material.card.MaterialCardView>-->
-
-<!--&lt;!&ndash;                            <com.google.android.material.card.MaterialCardView&ndash;&gt;-->
-<!--&lt;!&ndash;                                android:id="@+id/azan"&ndash;&gt;-->
-<!--&lt;!&ndash;                                android:layout_width="100sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                                android:layout_margin="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                                android:clickable="true"&ndash;&gt;-->
-<!--&lt;!&ndash;                                app:cardCornerRadius="5dp">&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                <LinearLayout&ndash;&gt;-->
-<!--&lt;!&ndash;                                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                                    android:gravity="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                                    android:orientation="vertical"&ndash;&gt;-->
-<!--&lt;!&ndash;                                    android:padding="6sp">&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                    <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:layout_width="50sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:layout_height="49dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:src="@drawable/ic_sound_waves" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                                    <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:text="আযান"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:textSize="10sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                                        android:textColor="@color/text"/>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                                </LinearLayout>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;                            </com.google.android.material.card.MaterialCardView>&ndash;&gt;-->
-
-<!--                        </LinearLayout>-->
-
-
-<!--                    </LinearLayout>-->
-                </ScrollView>
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="3dp">
+
+                        <Button
+                            android:id="@+id/isurabtn"
+                            style="@style/bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:width="0dp"
+                            android:tag="1"
+                            android:text="প্রয়োজনীয় সূরা সমুহ"
+                            android:textSize="19dp"
+                            android:onClick="isurabtn"/>
+
+                        <Button
+                            android:id="@+id/tasbihbtn"
+                            style="@style/bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_margin="2dp"
+                            android:layout_weight="1"
+                            android:width="0dp"
+                            android:gravity="center"
+                            android:tag="2"
+                            android:text="তাসবিহ পাঠ"
+                            android:textSize="17dp"
+                            android:onClick="tasbihbtn"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

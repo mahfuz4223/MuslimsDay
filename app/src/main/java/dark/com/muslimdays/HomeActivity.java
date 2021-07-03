@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +40,6 @@ import java.util.List;
 
 
 import dark.com.muslimdays.Allah99Name.AllahAr99NamAndFojilotMainActivity;
-import dark.com.muslimdays.Azan.AzanActivity;
 import dark.com.muslimdays.ImportentSurah.ImportantSuraActivity;
 import dark.com.muslimdays.NamazShikkha.NanazShikkahActivity;
 import dark.com.muslimdays.Tools.AppInternetStatus;
@@ -69,6 +69,7 @@ import static android.graphics.Typeface.createFromFile;
 
 
      private ImageButton alarm_button_isha,alarm_button_magrib,alarm_button_asr,alarm_button_zuhar,alarm_button_fajr;
+
 
      private TextView hijrimonth,enmonth,enweek;
 
@@ -196,6 +197,7 @@ import static android.graphics.Typeface.createFromFile;
 
         iftar = findViewById(R.id.iftarID);
         sehri = findViewById(R.id.sehriID);
+
 
         sunRise = findViewById(R.id.sunrise);
         sunSet = findViewById(R.id.sunset);
@@ -401,6 +403,22 @@ import static android.graphics.Typeface.createFromFile;
 
 
     }
+
+     public void quranbtn(View view) {
+         startActivity(new Intent(HomeActivity.this, MainActivity.class));
+     }
+
+     public void isurabtn(View view) {
+         startActivity(new Intent(HomeActivity.this, ImportantSuraActivity.class));
+     }
+
+     public void tasbihbtn(View view) {
+         startActivity(new Intent(HomeActivity.this, TasbihActivity.class));
+     }
+
+     public void qublabtn(View view) {
+         startActivity(new Intent(HomeActivity.this, CompassActivity.class));
+     }
 
 
      private class GetPrayerTimes extends AsyncTask<Void, Void, Void>  {

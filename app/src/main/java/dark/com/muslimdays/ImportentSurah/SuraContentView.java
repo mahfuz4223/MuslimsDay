@@ -25,64 +25,6 @@ public class SuraContentView extends AppCompatActivity {
         String layout = intent.getStringExtra("layoutName");
         tileText = intent.getStringExtra("title");
 
-        if (layout.equals("sura_fatiha")) {
-            setContentView(R.layout.sura_fatiha_layout);
-            topBar();
-            return;
-        }
-
-        if (layout.equals("sura_fill")) {
-            setContentView(R.layout.sura_fill_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_ekhlas")) {
-            setContentView(R.layout.sura_ekhlas_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_falaq")) {
-            setContentView(R.layout.sura_falaq_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_kafirun")) {
-            setContentView(R.layout.sura_kafirun_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_kausar")) {
-            setContentView(R.layout.sura_kausar_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_lahab")) {
-            setContentView(R.layout.sura_lahab_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_maun")) {
-            setContentView(R.layout.sura_maun_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_nas")) {
-            setContentView(R.layout.sura_nas_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_nasr")) {
-            setContentView(R.layout.sura_nasr_layout);
-            topBar();
-            return;
-        }
-        if (layout.equals("sura_quraisy")) {
-            setContentView(R.layout.sura_quraisy_layout);
-            topBar();
-            return;
-        }
-
-
 
     }
 

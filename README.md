@@ -19,6 +19,7 @@ Add Sleeping Remembrance with notifications```<br/>
 Add other types Dikr ...<br/>
 Update Tally Counter look<br/>
 Save its value locally<br/>
-Fix Notifications on API level 26 and plus<br/>
+Add Notifications <br/>
+Improve Quran ui and Add Audio player <br/>
 In progress :<br/>
 

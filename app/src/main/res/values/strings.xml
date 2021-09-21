@@ -4,7 +4,7 @@
     <string name="nav_close">nav close</string>
     <string name="compass_hands">Compass Hands</string>
 
-    <string name="internetlost">Network Error...</string>
+    <string name="internetlost">Network Error....</string>
     <string name="internetfound">Refreshing data....</string>
     <string name="locationloading">Loading your location …</string>
     <string name="clickbackagaintoexit">click back again to exit</string>

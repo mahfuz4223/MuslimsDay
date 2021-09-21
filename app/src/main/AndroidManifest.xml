@@ -47,7 +47,6 @@
         <activity android:name=".NamazShikkha.NamazerDowaMainActivity" />
         <activity android:name=".NamazShikkha.NanazShikkahActivity" />
         <activity android:name=".Tools.InternetCheckActivity" />
-        <activity android:name=".RakatTableActivity" />
         <activity android:name=".OjurNiyomActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".kibla.CompassActivity" />

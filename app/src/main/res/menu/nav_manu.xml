@@ -53,10 +53,6 @@
                     android:id="@+id/about"
                     android:icon="@drawable/ic_baseline_about"
                     android:title="About" />
-
-                <item android:id="@+id/developer"
-                    android:icon="@drawable/ic_baseline_developer_mode_24"
-                    android:title="Developer"/>
             </menu>
         </item>
 

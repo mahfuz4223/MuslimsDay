@@ -276,9 +276,7 @@ import static android.graphics.Typeface.createFromFile;
                 if (item.getItemId() == R.id.name) {
                     startActivity(new Intent(HomeActivity.this, AllahAr99NamAndFojilotMainActivity.class));
                 }
-                if (item.getItemId() == R.id.developer) {
-                    startActivity(new Intent(HomeActivity.this, Devloper.class));
-                } if (item.getItemId() == R.id.setting) {
+               if (item.getItemId() == R.id.setting) {
                     startActivity(new Intent(HomeActivity.this, SalatSettings.class));
                     finish();
                 }

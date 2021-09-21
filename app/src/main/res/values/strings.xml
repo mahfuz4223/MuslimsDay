@@ -134,6 +134,12 @@
 
     <string name="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="_00_00">00:00</string>
+    <string name="endtime">সেহরি শেষ সময়</string>
+    <string name="Sehri_and_iftar">সেহরি ও ইফতার</string>
+    <string name="Sunset">সুর্যাস্ত -</string>
+    <string name="Sunrise">সূর্যোদয় -</string>
+    <string name="_00">00</string>
 
 
 </resources>

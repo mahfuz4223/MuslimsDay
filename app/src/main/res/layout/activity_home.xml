@@ -162,7 +162,7 @@
                                 android:id="@+id/enDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="00"
+                                android:text="@string/_00"
                                 android:textColor="@color/text"
                                 android:fontFamily="@font/solaimanlipi"/>
 
@@ -214,7 +214,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="সূর্যোদয় - "
+                                android:text="@string/Sunrise"
                                 android:textColor="@color/text" />
 
 
@@ -222,7 +222,7 @@
                                 android:id="@+id/sunrise"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="00:00"
+                                android:text="@string/_00_00"
                                 android:textColor="@color/text" />
 
 
@@ -243,7 +243,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="সুর্যাস্ত - "
+                                android:text="@string/Sunset"
                                 android:textColor="@color/text" />
 
 
@@ -251,7 +251,7 @@
                                 android:id="@+id/sunset"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="00:00"
+                                android:text="@string/_00_00"
                                 android:layout_marginLeft="10dp"
                                 android:layout_gravity="center_horizontal|center"
                                 android:textColor="@color/text" />
@@ -307,7 +307,7 @@
                                         android:layout_height="wrap_content"
                                         android:background="@color/colorPrimary"
                                         android:padding="3sp"
-                                        android:text="সেহরি ও ইফতার "
+                                        android:text="@string/Sehri_and_iftar"
                                         android:textAlignment="center"
                                         android:textColor="@color/white" />
 
@@ -343,7 +343,7 @@
                                                 android:layout_gravity="center|center_horizontal"
                                                 android:gravity="center"
                                                 android:layout_height="wrap_content"
-                                                android:text="সেহরি শেষ সময়"
+                                                android:text="@string/endtime"
                                                 android:fontFamily="@font/solaimanlipi"
                                                 android:textColor="@color/purple_700" />
 
@@ -355,10 +355,18 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="25dp"
                                                 android:gravity="center"
-                                                android:text="00:00"
+                                                android:text="@string/_00_00"
                                                 android:fontFamily="@font/solaimanlipi"
                                                 android:textColor="@color/purple_700" />
                                         </LinearLayout>
+
+
+                                    <View
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="#939393" />
 
 
 
